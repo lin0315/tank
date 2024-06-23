@@ -19,9 +19,10 @@ export default abstract class CanvasAbstract {
     this.app.insertAdjacentElement('afterbegin', this.el)
   }
 
-  protected drawModels(num: number) {
+  protected drawModels(num: number, model: ModelConstructor) {
     this.postitionCollection(num).forEach((position) => {
-      this.canvas.drawImage(images.get('straw')!, position.x, position.y, config.model.width, config.model.height)
+      const instance = new model(this.canvas, position.x, position.y)
+      instance.render()
     })
 
   }
