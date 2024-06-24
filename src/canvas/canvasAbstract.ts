@@ -1,5 +1,5 @@
 import config from "../config";
-import { images } from "../server/image";
+import Position from '../server/Postition'
 
 
 
@@ -20,38 +20,12 @@ export default abstract class CanvasAbstract {
   }
 
   protected drawModels(num: number, model: ModelConstructor) {
-    this.postitionCollection(num).forEach((position) => {
+    Position.getCollection(num).forEach((position) => {
       const instance = new model(this.canvas, position.x, position.y)
       instance.render()
     })
 
   }
 
-  /**
-   * 获取随机不重复草地位置集合
-   * @param num 草地数量
-   * @returns { x: number, y: number }[]
-   */
-  protected postitionCollection(num: number) {
-    const collections = [] as { x: number, y: number }[]
-    for (let i = 0; i < num; i++) {
-      while (true) {
-        const position = this.position()
-        const exists = collections.some(m => m.x == position.x && m.y == position.y)
-        if (!exists) {
-          collections.push(position);
-          break;
-        }
-      }
-    }
 
-    return collections
-  }
-
-  protected position() {
-    return {
-      x: Math.floor(Math.random() * (config.canvas.width / config.model.width)) * config.model.width,
-      y: Math.floor(Math.random() * (config.canvas.height / config.model.height)) * config.model.height
-    }
-  }
 }
