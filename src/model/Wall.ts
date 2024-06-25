@@ -3,7 +3,6 @@ import ModelAbstract from "./ModelAbstract";
 
 export default class Straw extends ModelAbstract implements IModel {
   render(): void {
-    super.draw(images.get('straw')!)
+    super.draw(images.get('wall')!)
   }
-
 }
