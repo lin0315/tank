@@ -1,10 +1,10 @@
 import config from "../config";
 import Position from '../server/Postition'
 
-
-
 export default abstract class CanvasAbstract {
   private models: IModel[] = []
+  abstract num(): number
+  abstract model(): ModelConstructor
   abstract render(): void
   constructor(
     protected app = document.querySelector('#app') as HTMLDivElement,
@@ -22,8 +22,9 @@ export default abstract class CanvasAbstract {
   }
 
   // 生产模型实例
-  protected createModels(num: number, model: ModelConstructor) {
-    Position.getCollection(num).forEach((position) => {
+  protected createModels() {
+    Position.getCollection(this.num()).forEach((position) => {
+      const model = this.model()
       const instance = new model(this.canvas, position.x, position.y)
       this.models.push(instance)
     })

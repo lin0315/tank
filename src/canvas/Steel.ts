@@ -1,18 +1,19 @@
 import config from "../config";
 import CanvasAbstract from "./CanvasAbstract";
-import WaterModel from "../model/Water";
+import SteelModel from "../model/Steel";
 
-class Water extends CanvasAbstract implements ICanvas {
+class Straw extends CanvasAbstract implements ICanvas {
   num(): number {
-    return config.water.num
+    return config.steel.num
   }
   model(): ModelConstructor {
-    return WaterModel
+    return SteelModel
   }
+
   render() {
     super.createModels();
     super.renderModels()
   }
 }
 
-export default new Water()
+export default new Straw()

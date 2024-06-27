@@ -1,9 +1,10 @@
 import './style.scss'
-import Straw from './canvas/Straw'
 import { imagesPromise } from './server/image'
 import Wall from './canvas/Wall'
 import config from './config'
 import Water from './canvas/Water'
+import Steel from './canvas/Steel'
+import Straw from './canvas/Straw'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 app.style.width = config.canvas.width + 'px'
@@ -14,6 +15,7 @@ async function bootstrap() {
   Straw.render()
   Wall.render()
   Water.render()
+  Steel.render()
 }
 
 bootstrap()
