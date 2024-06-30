@@ -12,6 +12,13 @@ class Straw extends CanvasAbstract implements ICanvas {
   }
   render() {
     this.createModels();
+    this.renderModels()
+    setInterval(() => { this.renderModels() }, config.timeout)
+  }
+
+  // 渲染模型到画布
+  protected renderModels() {
+    this.canvas.clearRect(0, 0, config.canvas.width, config.canvas.height)
     super.renderModels()
   }
 

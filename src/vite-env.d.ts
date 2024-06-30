@@ -6,6 +6,9 @@ interface ModelConstructor {
 
 interface IModel {
   render(): void
+  image(): HTMLImageElement,
+  x: number,
+  y: number
 
 }
 
