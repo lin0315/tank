@@ -14,24 +14,44 @@ export default class Tank extends ModelAbstract implements IModel {
   }
 
   protected move(): void {
-    this.canvas.clearRect(this.x, this.y, config.model.width, config.model.height)
-    switch (this.direction) {
-      case directionEnum.top:
-        this.y--;
+    while (true) {
+      let x = this.x;
+      let y = this.y;
+      switch (this.direction) {
+        case directionEnum.top:
+          y--;
+          break;
+        case directionEnum.right:
+          x++;
+          break;
+        case directionEnum.bottom:
+          y++;
+          break;
+        case directionEnum.left:
+          x--;
+          break;
+        default:
+          break;
+      }
+      if (this.isTouch(x, y)) {
+        this.randomDirection()
+      } else {
+        this.x = x;
+        this.y = y;
         break;
-      case directionEnum.right:
-        this.x++;
-        break;
-      case directionEnum.bottom:
-        this.y++;
-        break;
-      case directionEnum.left:
-        this.x--;
-        break;
-      default:
-        break;
+      }
     }
     super.draw()
+  }
+
+  protected isTouch(x: number, y: number): boolean {
+    if (
+      x < 0 ||
+      x + this.width > config.canvas.width ||
+      y < 0 ||
+      y + this.height > config.canvas.height
+    ) return true
+    return false
   }
 
 

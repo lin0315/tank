@@ -6,6 +6,8 @@ export default abstract class ModelAbstract {
   abstract render(): void
   abstract image(): HTMLImageElement
   protected direction: directionEnum = directionEnum.top
+  protected width = config.model.width
+  protected height = config.model.height
   constructor(protected canvas: CanvasRenderingContext2D, public x: number, public y: number) {
     this.randomDirection()
   }
