@@ -5,10 +5,13 @@ interface ModelConstructor {
 }
 
 interface IModel {
-  render(): void
+  render(): void,
   image(): HTMLImageElement,
   x: number,
-  y: number
+  y: number,
+  width: number,
+  height: number
+
 
 }
 

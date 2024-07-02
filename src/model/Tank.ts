@@ -3,6 +3,9 @@ import { directionEnum } from "../enum/directionEnum";
 import { images } from "../server/image";
 import ModelAbstract from "./ModelAbstract";
 import config from '../config';
+import Water from '../canvas/Water';
+import Wall from '../canvas/Wall';
+import Steel from '../canvas/Steel';
 
 
 export default class Tank extends ModelAbstract implements IModel {
@@ -51,7 +54,19 @@ export default class Tank extends ModelAbstract implements IModel {
       y < 0 ||
       y + this.height > config.canvas.height
     ) return true
-    return false
+
+    const models = [...Water.models, ...Wall.models, ...Steel.models]
+
+    return models.some(model => {
+      const state =
+        x + this.width <= model.x ||
+        x >= model.x + model.width ||
+        y + this.height <= model.y ||
+        y >= model.y + model.height
+      return !state
+    })
+
+
   }
 
 
