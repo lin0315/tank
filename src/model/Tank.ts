@@ -6,14 +6,16 @@ import config from '../config';
 import Water from '../canvas/Water';
 import Wall from '../canvas/Wall';
 import Steel from '../canvas/Steel';
+import TankCanvas from '../canvas/Tank';
 
 
 export default class Tank extends ModelAbstract implements IModel {
+  canvas: ICanvas = TankCanvas;
   name: string = 'tank'
 
   render(): void {
     this.move()
-
+    if (_.random(20) == 1) this.direction = directionEnum.bottom;
   }
 
   protected move(): void {

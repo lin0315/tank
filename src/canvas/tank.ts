@@ -18,7 +18,7 @@ class Straw extends CanvasAbstract implements ICanvas {
 
   // 渲染模型到画布
   protected renderModels() {
-    this.canvas.clearRect(0, 0, config.canvas.width, config.canvas.height)
+    this.ctx.clearRect(0, 0, config.canvas.width, config.canvas.height)
     super.renderModels()
   }
 
@@ -26,7 +26,7 @@ class Straw extends CanvasAbstract implements ICanvas {
     for (let i = 0; i < this.num(); i++) {
       const pos = Postition.position()
       const model = this.model()
-      const instance = new model(this.canvas, pos.x, 0)
+      const instance = new model(pos.x, 0)
       this.models.push(instance)
     }
   }
