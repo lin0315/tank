@@ -6,6 +6,7 @@ import Water from './canvas/Water'
 import Steel from './canvas/Steel'
 import Straw from './canvas/Straw'
 import Tank from './canvas/Tank'
+import Bullet from './canvas/Bullet'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 app.style.width = config.canvas.width + 'px'
@@ -18,6 +19,7 @@ async function bootstrap() {
   Water.render()
   Steel.render()
   Tank.render()
+  Bullet.render()
 }
 
 bootstrap()
