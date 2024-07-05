@@ -15,4 +15,4 @@ class Water extends CanvasAbstract implements ICanvas {
   }
 }
 
-export default new Water()
+export default new Water('water')

@@ -14,4 +14,4 @@ class Bullet extends CanvasAbstract implements ICanvas {
   }
 }
 
-export default new Bullet()
+export default new Bullet('bullet')
