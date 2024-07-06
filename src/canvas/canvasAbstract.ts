@@ -4,7 +4,7 @@ import Position from '../server/Postition'
 export default abstract class CanvasAbstract {
   public models: IModel[] = []
   abstract num(): number
-  abstract model(): ModelConstructor
+  abstract model(): ModelConstructor | BulletModelConstructor
   abstract render(): void
   constructor(
     protected name: string,
