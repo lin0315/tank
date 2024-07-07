@@ -10,10 +10,9 @@ class Bullet extends CanvasAbstract implements ICanvas {
     return BulletModel
   }
   render() {
-    // super.createModels();
-    // super.renderModels()
-    setTimeout(() => {
+    setInterval(() => {
       this.createBullet()
+      this.renderModels()
     }, 100);
   }
 
