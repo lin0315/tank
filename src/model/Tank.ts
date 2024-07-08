@@ -3,10 +3,8 @@ import { directionEnum } from "../enum/directionEnum";
 import { images } from "../server/image";
 import ModelAbstract from "./ModelAbstract";
 import config from '../config';
-import Water from '../canvas/Water';
-import Wall from '../canvas/Wall';
-import Steel from '../canvas/Steel';
 import TankCanvas from '../canvas/Tank';
+import { isModelTouch } from '../util';
 
 
 export default class Tank extends ModelAbstract implements IModel {
@@ -38,7 +36,7 @@ export default class Tank extends ModelAbstract implements IModel {
         default:
           break;
       }
-      if (this.isTouch(x, y)) {
+      if (isModelTouch(x, y)) {
         this.randomDirection()
       } else {
         this.x = x;
@@ -49,27 +47,7 @@ export default class Tank extends ModelAbstract implements IModel {
     super.draw()
   }
 
-  protected isTouch(x: number, y: number): boolean {
-    if (
-      x < 0 ||
-      x + this.width > config.canvas.width ||
-      y < 0 ||
-      y + this.height > config.canvas.height
-    ) return true
 
-    const models = [...Water.models, ...Wall.models, ...Steel.models]
-
-    return models.some(model => {
-      const state =
-        x + this.width <= model.x ||
-        x >= model.x + model.width ||
-        y + this.height <= model.y ||
-        y >= model.y + model.height
-      return !state
-    })
-
-
-  }
 
 
   image() {
