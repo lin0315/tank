@@ -39,5 +39,9 @@ export default abstract class CanvasAbstract {
     this.models.forEach(model => model.render())
   }
 
+  public removeModel(model: IModel) {
+    this.models = this.models.filter(item => item !== model)
+  }
+
 
 }

@@ -2,6 +2,7 @@ import { images } from "../server/image";
 import ModelAbstract from "./ModelAbstract";
 import BulletCanvas from "../canvas/Bullet";
 import { directionEnum } from "../enum/directionEnum";
+import { isCanvasTouch } from "../util";
 
 export default class Bullet extends ModelAbstract implements IModel {
   canvas: ICanvas = BulletCanvas;
@@ -34,9 +35,14 @@ export default class Bullet extends ModelAbstract implements IModel {
       default:
         break;
     }
-    this.x = x;
-    this.y = y;
-    this.draw()
+
+    if (isCanvasTouch(x, y, 2, 2)) {
+      this.destroy()
+    } else {
+      this.x = x;
+      this.y = y;
+      this.draw()
+    }
   }
 
   protected draw() {

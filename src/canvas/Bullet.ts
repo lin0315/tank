@@ -13,7 +13,7 @@ class Bullet extends CanvasAbstract implements ICanvas {
     setInterval(() => {
       this.createBullet()
       this.renderModels()
-    }, 100);
+    }, 50);
   }
 
   createBullet() {

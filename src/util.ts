@@ -27,3 +27,20 @@ export function isModelTouch(
   })
 
 }
+
+export function isCanvasTouch(
+  x: number, y: number,
+  width = config.model.width,
+  height = config.model.height
+): boolean {
+
+  return (
+    x < 0 ||
+    x + width > config.canvas.width ||
+    y < 0 ||
+    y + height > config.canvas.height
+  )
+
+
+
+}

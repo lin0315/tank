@@ -24,5 +24,6 @@ interface IModel {
 interface ICanvas {
   model(): ModelConstructor | BulletModelConstructor
   num(): number,
-  ctx: CanvasRenderingContext2D
+  ctx: CanvasRenderingContext2D,
+  removeModel(model: TModel): void
 }
