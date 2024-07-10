@@ -2,7 +2,8 @@ import { images } from "../server/image";
 import ModelAbstract from "./ModelAbstract";
 import BulletCanvas from "../canvas/Bullet";
 import { directionEnum } from "../enum/directionEnum";
-import { isCanvasTouch } from "../util";
+import { isCanvasTouch, isModelTouch } from "../util";
+import Wall from "../canvas/Wall";
 
 export default class Bullet extends ModelAbstract implements IModel {
   canvas: ICanvas = BulletCanvas;
@@ -36,8 +37,13 @@ export default class Bullet extends ModelAbstract implements IModel {
         break;
     }
 
+    // 碰撞检测
+    const touchModel = isModelTouch(x, y, 2, 2, [...Wall.models])
     if (isCanvasTouch(x, y, 2, 2)) {
       this.destroy()
+    } else if (touchModel) {
+      this.destroy()
+      touchModel.destroy()
     } else {
       this.x = x;
       this.y = y;

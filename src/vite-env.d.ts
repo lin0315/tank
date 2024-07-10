@@ -17,6 +17,7 @@ interface IModel {
   width: number,
   height: number
   direction: string
+  destroy(): void
 
 
 }
@@ -26,4 +27,5 @@ interface ICanvas {
   num(): number,
   ctx: CanvasRenderingContext2D,
   removeModel(model: TModel): void
+  renderModels(): void
 }

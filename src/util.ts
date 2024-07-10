@@ -8,16 +8,9 @@ export function isModelTouch(
   width = config.model.width,
   height = config.model.height,
   models = [...Water.models, ...Wall.models, ...Steel.models]
-): boolean {
-  if (
-    x < 0 ||
-    x + width > config.canvas.width ||
-    y < 0 ||
-    y + height > config.canvas.height
-  ) return true
+): IModel | undefined {
 
-
-  return models.some(model => {
+  return models.find(model => {
     const state =
       x + width <= model.x ||
       x >= model.x + model.width ||
