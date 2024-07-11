@@ -4,7 +4,7 @@ import { images } from "../server/image";
 import ModelAbstract from "./ModelAbstract";
 import config from '../config';
 import TankCanvas from '../canvas/Tank';
-import { isModelTouch } from '../util';
+import { isCanvasTouch, isModelTouch } from '../util';
 
 
 export default class Tank extends ModelAbstract implements IModel {
@@ -36,7 +36,7 @@ export default class Tank extends ModelAbstract implements IModel {
         default:
           break;
       }
-      if (isModelTouch(x, y)) {
+      if (isModelTouch(x, y) || isCanvasTouch(x, y)) {
         this.randomDirection()
       } else {
         this.x = x;

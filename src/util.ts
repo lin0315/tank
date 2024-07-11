@@ -34,6 +34,4 @@ export function isCanvasTouch(
     y + height > config.canvas.height
   )
 
-
-
 }

@@ -3,7 +3,7 @@ import CanvasAbstract from "./CanvasAbstract";
 import TankModel from "../model/Tank";
 import Postition from "../server/Postition";
 
-class Straw extends CanvasAbstract implements ICanvas {
+class Tank extends CanvasAbstract implements ICanvas {
   num(): number {
     return config.tank.num
   }
@@ -32,4 +32,4 @@ class Straw extends CanvasAbstract implements ICanvas {
   }
 }
 
-export default new Straw('tank')
+export default new Tank('tank')
