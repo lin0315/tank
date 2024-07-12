@@ -7,9 +7,10 @@ import tankRight from './static/images/tank/right.gif'
 import tankBottom from './static/images/tank/bottom.gif'
 import tankLeft from './static/images/tank/left.gif'
 import bullet from './static/images/bullet/bullet.jpg'
+import boss from './static/images/boss/boss.png'
 
 export default {
-  timeout: 35,
+  timeout: 10,
   canvas: {
     width: 900,
     height: 600
@@ -49,7 +50,8 @@ export default {
     tankRight,
     tankBottom,
     tankLeft,
-    bullet
+    bullet,
+    boss
   }
 
 

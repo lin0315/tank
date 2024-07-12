@@ -1,3 +1,4 @@
+import Boss from "./canvas/Boss"
 import Steel from "./canvas/Steel"
 import Wall from "./canvas/Wall"
 import Water from "./canvas/Water"
@@ -7,7 +8,7 @@ export function isModelTouch(
   x: number, y: number,
   width = config.model.width,
   height = config.model.height,
-  models = [...Water.models, ...Wall.models, ...Steel.models]
+  models = [...Water.models, ...Wall.models, ...Steel.models, ...Boss.models]
 ): IModel | undefined {
 
   return models.find(model => {
