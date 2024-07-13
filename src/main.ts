@@ -8,6 +8,7 @@ import Straw from './canvas/Straw'
 import Tank from './canvas/Tank'
 import Bullet from './canvas/Bullet'
 import Boss from './canvas/Boss'
+import Play from './canvas/Play'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 app.style.width = config.canvas.width + 'px'
@@ -22,6 +23,7 @@ async function bootstrap() {
   Tank.render()
   Bullet.render()
   Boss.render()
+  Play.render()
 }
 
 bootstrap()
