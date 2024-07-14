@@ -21,18 +21,19 @@ export default class Bullet extends ModelAbstract implements IModel {
   render(): void {
     let x = this.x;
     let y = this.y;
+    let step = this.tank.name === "play" ? 10 : 5
     switch (this.direction) {
       case directionEnum.top:
-        y -= 2;
+        y -= step;
         break;
       case directionEnum.right:
-        x += 2;
+        x += step;
         break;
       case directionEnum.bottom:
-        y += 2;
+        y += step;
         break;
       case directionEnum.left:
-        x -= 2;
+        x -= step;
         break;
       default:
         break;
