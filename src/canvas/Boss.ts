@@ -19,7 +19,6 @@ class Boos extends CanvasAbstract implements ICanvas {
       const model = this.model() as ModelConstructor
       const instance = new model(position.x, position.y)
       this.models.push(instance)
-      console.log(this.models)
     })
   }
 }
