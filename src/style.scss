@@ -9,7 +9,12 @@ body {
   #app {
     position: relative;
     background-color: #333;
-
+    background-image: url('./static/images/cover/cover.png');
+    background-size: cover;
+    background-position: center;
+    border: 10px solid #333;
+    box-sizing: content-box;
+    cursor: pointer;
     canvas {
       position: absolute;
     }
