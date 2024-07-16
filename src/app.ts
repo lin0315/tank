@@ -9,6 +9,7 @@ import Tank from './canvas/Tank'
 import Bullet from './canvas/Bullet'
 import Boss from './canvas/Boss'
 import Play from './canvas/Play'
+import audio from './server/audio'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 app.style.width = config.canvas.width + 'px'
@@ -33,9 +34,24 @@ export default {
   },
   stop() {
     clearInterval(this.interval);
-    console.log("游戏结束")
+    Tank.stop();
+    Bullet.stop();
+    this.text();
+  },
+  text() {
+    const el = document.createElement('canvas');
+    el.width = config.canvas.width;
+    el.height = config.canvas.height;
+    const ctx = el.getContext('2d')!
+    ctx.fillStyle = "skyblue";
+    ctx.font = '80px CascadiaMono';
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    ctx.fillText(this.state === 1 ? "胜利!" : "失败!", config.canvas.width / 2, config.canvas.height / 2)
+    app.appendChild(el)
   },
   async start() {
+    audio.start();
     app.style.backgroundImage = "none";
     app.style.cursor = "none"
     await Promise.all(imagesPromise)

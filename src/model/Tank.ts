@@ -9,7 +9,7 @@ import { isCanvasTouch, isModelTouch } from '../util';
 
 export default class Tank extends ModelAbstract implements IModel {
   canvas: ICanvas = TankCanvas;
-  name: string = 'tank'
+  public name: string = 'tank';
 
   render(): void {
     this.move()
